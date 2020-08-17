@@ -17,9 +17,9 @@
                             дату</label>
                     </div>
                     <div class="form__label-group">
-                        <input type="text" placeholder="CVC код" id="cvv" v-bind:class="{ error: isCvvError }"
+                        <input type="password" placeholder="CVC код" id="cvv" v-bind:class="{ error: isCvvError }"
                                @input="isNumber()"
-                               v-model="cvv_code" v-mask="'###'" style="-webkit-text-security: disc;">
+                               v-model="cvv_code" v-mask="'###'">
                         <label for="cvv" v-if="isCvvError" class="form__error">Введите корректный CVC</label>
                     </div>
                 </div>
@@ -129,8 +129,19 @@
         font-family: "CoreSans";
         src: url("../assets/fonts/CoreSansG-ExtraLight.ttf");
     }
+   @font-face {
+       font-family: "fontello";
+       src: url('../assets/fonts/fontello.eot?71740179');
+       src: url('../assets/fonts/fontello.eot?71740179#iefix') format('embedded-opentype'),
+       url('../assets/fonts/fontello.woff2?71740179') format('woff2'),
+       url('../assets/fonts/fontello.woff?71740179') format('woff'),
+       url('../assets/fonts/fontello.ttf?71740179') format('truetype'),
+       url('../assets/fonts/fontello.svg?71740179#fontello') format('svg');
+       font-weight: normal;
+       font-style: normal;
+   }
     body{
-        font-family: "CoreSans" !important;
+        font-family: "CoreSans";
     }
     .pay-box {
         border: 1px solid #E4E4E4;
@@ -157,6 +168,31 @@
             border-radius: 4px;
             margin-bottom: 16px;
             outline: none;
+            font-size: 16px;
+            &::placeholder{
+                font-size: 16px;
+                font-family: "CoreSans" !important;
+            }
+        }
+
+        #cvv{
+            font-family: "fontello";
+            font-style: normal;
+            font-weight: normal;
+            speak: none;
+
+            /* For safety - reset parent styles, that can break glyph codes*/
+            font-variant: normal;
+            text-transform: none;
+
+            /* Font smoothing. That was taken from TWBS */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            /* add spacing to better separate each image */
+            letter-spacing: 2px;
+            font-size: 8px;
+            padding: 25px 16px;
         }
 
         &__card-input {
