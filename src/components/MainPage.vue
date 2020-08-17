@@ -17,7 +17,7 @@
                             дату</label>
                     </div>
                     <div class="form__label-group">
-                        <input type="text" placeholder="CVC код" id="cvv" v-bind:class="{ error: isCvvError }"
+                        <input type="password" placeholder="CVC код" id="cvv" v-bind:class="{ error: isCvvError }"
                                @input="isNumber()"
                                v-model="cvv_code" v-mask="'###'">
                         <label for="cvv" v-if="isCvvError" class="form__error">Введите корректный CVC</label>
